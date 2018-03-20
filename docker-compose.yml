@@ -1,0 +1,31 @@
+version: "3"
+
+networks:
+  corp:
+    driver: bridge
+
+services:
+  api0:
+    container_name: api0
+    networks:
+      - corp
+    build: ./api
+    ports:
+      - "9001:9000"
+  api1:
+    container_name: api1
+    networks:
+      - corp
+    build: ./api
+    ports:
+      - "9002:9000"
+  web:
+    container_name: web
+    networks:
+      - corp
+    build: ./web
+    volumes:
+      - ./web:/usr/share/nginx/html
+      - ./web:/var/www/html
+    ports:
+      - "80:80"
