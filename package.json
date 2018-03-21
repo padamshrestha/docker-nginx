@@ -19,7 +19,8 @@
     "update:check": "./node_modules/.bin/nx update check",
     "update:skip": "./node_modules/.bin/nx update skip",
     "postinstall": "./node_modules/.bin/nx postinstall",
-    "build-prod": "ng build --prod && gzip -r web/dist/*.js"
+    "build-prod": "ng build --prod && gzip -r web/dist/*.js",
+    "serve-prod": "npm run build-prod && docker-compose up"
   },
   "private": true,
   "dependencies": {
